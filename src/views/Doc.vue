@@ -30,19 +30,16 @@
   export default {
     components: {Topnav},
     setup() {
-      const menuVisible = inject<Ref<boolean>>('menuVisible') // get
-      return {menuVisible}
-    }
+      const menuVisible = inject<Ref<boolean>>("menuVisible"); // get
+      return {menuVisible};
+    },
   }
 </script>
 <style lang="scss" scoped>
   aside {
     background: lightblue;
     width: 150px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 70px 16px 16px;
+    padding: 16px;
 
     > h2 {
       margin-bottom: 4px;
@@ -52,6 +49,13 @@
       > li {
         padding: 4px 0;
       }
+    }
+
+    @media (max-width: 500px) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding-top: 70px;
     }
   }
 </style>
