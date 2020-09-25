@@ -1,22 +1,10 @@
-import { createApp } from 'vue'
+import { createApp } from "vue";
 // @ts-ignore
-import App from './App.vue'
-import './index.scss'
-import {createWebHashHistory, createRouter} from 'vue-router'
+import App from "./App.vue";
+import "./index.scss";
 // @ts-ignore
-import Home from './views/Home.vue'
-// @ts-ignore
-import Doc from "./views/Doc.vue"
+import { router } from './router';
 
-const history = createWebHashHistory()
-const router = createRouter({
-  history: history,
-  routes: [
-    {path: '/', component: Home},
-    {path: '/doc', component: Doc}
-  ]
-})
-
-const app = createApp(App)
-app.use(router)
-app.mount('#app')
+const app = createApp(App);
+app.use(router);
+app.mount("#app");
