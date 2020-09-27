@@ -50,7 +50,7 @@
       const select = (title: string) => {
         context.emit('update:selected', title)
       }
-      return {current, defaults, titles, select, selectedItem,container, indicator }
+      return {current, defaults, titles, select, selectedItem, container, indicator}
     }
   }
 </script>
