@@ -67,12 +67,12 @@
     > main {
       flex-grow: 1;
       padding: 16px;
-      background: lightgreen;
+      background: white;
     }
   }
 
   aside {
-    background: white;
+    background: lightblue;
     width: 150px;
     position: fixed;
     top: 0;
