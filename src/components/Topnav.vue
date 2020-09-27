@@ -6,7 +6,6 @@
       <li>菜单2</li>
     </ul>
     <span class="toggleAside" @click="toggleMenu"></span>
-
   </div>
 </template>
 <script lang="ts">
@@ -24,7 +23,6 @@
 </script>
 <style lang="scss" scoped>
   .topnav {
-    background: pink;
     display: flex;
     padding: 16px;
     position: fixed;
