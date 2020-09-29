@@ -13,14 +13,12 @@ import DialogDemo from "./components/DialogDemo.vue";
 import TabsDemo from "./components/TabsDemo.vue";
 // @ts-ignore
 import DocDemo from "./components/DocDemo.vue";
+import { h } from 'vue';
 // @ts-ignore
-import Intro from './views/Intro.vue';
-// @ts-ignore
-import GetStarted from './views/GetStarted.vue'
-// @ts-ignore
-import Install from './views/Install.vue'
+import Markdown from './components/Markdown.vue';
 
 const history = createWebHashHistory();
+const md = filename => h(Markdown, { path: `../markdown/${filename}.md`, key: filename })
 export const router = createRouter({
   history: history,
   routes: [
@@ -30,9 +28,9 @@ export const router = createRouter({
       component: Doc,
       children: [
         {path: "", component: DocDemo},
-        {path: "intro", component: Intro},
-        {path: "get-started", component: GetStarted},
-        {path: "install", component: Install},
+        { path: "intro", component: md('intro') },
+        { path: "get-started", component: md('get-started') },
+        { path: "install", component: md('install') },
         {path: "switch", component: SwitchDemo},
         {path: "button", component: ButtonDemo},
         {path: "dialog", component: DialogDemo},
