@@ -31,8 +31,8 @@
           indicator.value.style.width = width + 'px'
           const {left: left1} = container.value.getBoundingClientRect()
           const {left: left2} = selectedItem.value.getBoundingClientRect()
-          const left = left2 - left1
-          indicator.value.style.left = left + 'px'
+          const left = left1 - left2
+          indicator.value.style.left = left+72 + 'px'
         })
       })
       const defaults = context.slots.default()
