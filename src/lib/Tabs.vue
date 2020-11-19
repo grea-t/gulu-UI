@@ -13,7 +13,7 @@
 </template>
 <script lang="ts">
   import Tab from './Tab.vue'
-  import {computed, ref, onMounted, watchEffect} from 'vue'
+  import {computed, ref, watchEffect, onMounted, Component} from 'vue'
 
   export default {
     props: {
@@ -31,13 +31,16 @@
           indicator.value.style.width = width + 'px'
           const {left: left1} = container.value.getBoundingClientRect()
           const {left: left2} = selectedItem.value.getBoundingClientRect()
-          const left = left1 - left2
-          indicator.value.style.left = left+72 + 'px'
+          const left = left2 - left1
+          indicator.value.style.left = left + 'px'
+        }, {
+          flush: 'post'
         })
       })
+
       const defaults = context.slots.default()
       defaults.forEach((tag) => {
-        if (tag.type !== Tab) {
+        if ((tag.type as Component).name !== Tab.name) {
           throw new Error('Tabs 子标签必须是 Tab')
         }
       })
