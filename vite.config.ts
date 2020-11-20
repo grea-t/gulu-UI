@@ -1,12 +1,15 @@
 // @ts-nocheck
-import { md } from "./plugins/md";
+import {md} from "./plugins/md";
 import fs from 'fs'
 import {baseParse} from '@vue/compiler-core'
+
 export default {
+  base: './',
+  assetsDir: 'assets',
   plugins: [md()],
   vueCustomBlockTransforms: {
     demo: (options) => {
-      const { code, path } = options
+      const {code, path} = options
       const file = fs.readFileSync(path).toString()
       const parsed = baseParse(file).children.find(n => n.tag === 'demo')
       const title = parsed.children[0].content
@@ -18,4 +21,5 @@ export default {
         Component.__sourceCodeTitle = ${JSON.stringify(title)}
       }`.trim()
     }
-  }};
+  }
+};
